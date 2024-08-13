@@ -1,0 +1,48 @@
+a {
+    text-decoration: none;
+}
+
+article.book-card img {
+    margin-bottom: -70px;
+    transition: 0.3s;
+    width: 170px;
+    border-radius: 10px;
+    z-index: 100;
+}
+
+article.book-card:hover img {
+    margin-bottom: 0;
+    width: 180px;
+}
+
+article.book-card div.card {
+    margin-top: 10px;
+    padding: 10px;
+    z-index: 110;
+    width: 100%;
+}
+
+header ul.nav {
+    background-color: gray;
+    padding: 10px;
+    display: flex;
+    gap: 10px;
+    border-radius: 10px;
+}
+
+header ul.nav > li.nav-item {
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 20px;
+}
+
+header ul.nav > li.nav-item.active {
+    background-color: red;
+    border-radius: 10px;
+}
+header ul.nav > li.nav-item a {
+    color: white;
+}
+header ul.nav > li.nav-item.active a {
+    color: white;
+}

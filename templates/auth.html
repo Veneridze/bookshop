@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="icon" href="/img/icon.svg" sizes="any" type="image/svg+xml">
+    <title>Вход в с систему</title>
+</head>
+
+<body style="height: 100vh;" class="d-flex flex-column gap-3 justify-content-center">
+    <main class="container-sm card p-3" style="max-width: 500px;">
+        <h2>Войти</h2>
+        <form method="POST">
+            <div class="mb-2">
+                <label for="exampleInputEmail1" class="form-label">Логин</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            </div>
+            <div class="mb-2">
+                <label for="exampleInputPassword1" class="form-label">Пароль</label>
+                <input type="password" class="form-control" id="exampleInputPassword1">
+            </div>
+            <p><a class="link-opacity-10-hover" href="/reg">Зарегистрироваться</a></p>
+            <button type="submit" class="btn btn-primary">Войти</button>
+        </form>
+    </main>
+</body>
+
+</html>

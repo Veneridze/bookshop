@@ -1,0 +1,7 @@
+{
+ "HOST": "localhost",
+ "USERNAME": "root",
+ "PASSWORD": null,
+ "DATABASE": "bookshop",
+ "PORT": "3306"
+}

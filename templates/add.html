@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="icon" href="/img/icon.svg" sizes="any" type="image/svg+xml">
+    <script>
+        function changePreview(event) {
+            console.log('test');
+            var file = event.target.files[0];
+            var reader = new FileReader();
+            // it's onload event and you forgot (parameters)
+            reader.onload = function (e) {
+                document.getElementById('preview').src = e.target.result;
+            }
+            // you have to declare the file loading
+            reader.readAsDataURL(file);
+            document.getElementById('newphoto').style.display = 'none';
+        }
+    </script>
+    <title>Добавить книгу</title>
+</head>
+
+<body class="d-flex flex-column gap-3">
+
+    %header%
+    <aside>
+        <div class="container-xl">
+            <h1>Добавить книгу</h1>
+        </div>
+    </aside>
+    <main class="container-xl">
+        <form class="row" method="POST" enctype="multipart/form-data">
+            <div class="col-9">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">Название</label>
+                            <input type="text" name="name" class="form-control" id="exampleFormControlInput1">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Название на латинице</label>
+                            <input disabled type="text" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <h2>Оглавления</h2>
+                    </div>
+                    <div class="col-12" id="headers"></div>
+
+                    <div class="col-12">
+                        <button onclick="addHeader()" type="button" class="btn btn-primary w-100 mt-3">
+                            Добавить оглавление
+                        </button>
+                    </div>
+                    <div class="col-12">
+                        <button class="btn btn-primary my-3">Создать книгу</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-3">
+                <label for="image" class="w-100">
+                    <a id="newphoto" type="button" class="btn btn-secondary w-100" style="height: 400px;">Добавить
+                        фото</a>
+                    <img style="cursor: pointer;" id="preview" class="rounded" src="img/martian.webp" width="100%" alt="" srcset="">
+                </label>
+                <!--<button class="btn btn-primary w-100 my-3">Читать</button> -->
+            </div>
+
+            <input accept="image/png, image/jpeg" style="display: none;" type="file" name="image" id="image">
+        </form>
+    </main>
+
+    <script>
+        let counter = 0;
+        document.getElementById('image').addEventListener('change', changePreview);
+        function addHeader() {
+            let article = document.createElement('article');
+            article.classList.add("card", "p-3", "mt-3");
+            article.innerHTML = `
+    <div class="row">
+        <div class="col-9">
+            <div class="mb-3">
+                <label class="form-label">Название</label>
+                <input type="text" name="headers[${counter}][name]" class="form-control" required>
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="mb-3">
+                <button class="btn btn-danger" style="float: right;">Удалить</button>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-9">
+            <div class="mb-3">
+                <label class="form-label">Название на
+                    латинице</label>
+                <input type="text" disabled class="form-control">
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="mb-3">
+                <label class="form-label">Страница</label>
+                <input type="number" name="headers[${counter}][page]" class="form-control">
+            </div>
+        </div>
+    </div>
+    </div>`;
+            document.getElementById('headers').appendChild(article);
+            counter++;
+        }
+    </script>
+</body>
+
+</html>

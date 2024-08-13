@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="icon" href="/img/icon.svg" sizes="any" type="image/svg+xml">
+    <title>Книга %name%</title>
+</head>
+
+<body class="d-flex flex-column gap-3">
+    %header%
+    <aside>
+        <div class="container-xl">
+            <div class="row">
+
+                <div class="col-8">
+                    <h1>%name%</h1>
+                </div>
+                <div class="col-4">
+                    <div class="d-flex gap-2 float-end">
+                    <a href="/show?id=%id%" class="btn btn-primary float-end">
+                        <div class="d-flex flex-column">
+                            <div>Все главы</div>
+                        </div>
+                    </a>
+                    <a href="/edit?id=%id%" class="btn btn-primary float-end">
+                        <div class="d-flex flex-column">
+                            <div>Редактировать</div>
+                        </div>
+                    </a>
+                </div>
+                </div>
+                <div class="col-12">
+                    <iframe style="width: 100%; height: 75vh;" src="/bookfile?id=%id%#page=%page%" frameborder="0"></iframe>
+                </div>
+            </div>
+            
+        </div>
+    </aside>
+</body>
+
+</html>
